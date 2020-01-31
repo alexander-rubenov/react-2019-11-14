@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Rate} from 'antd'
+import {useSelector} from 'react-redux'
+import {selectAverageRating} from '../../store/selectors'
 
-function AverageRating({reviews}) {
-  const rawRating =
-    reviews.reduce((acc, {rating}) => {
-      return acc + rating
-    }, 0) / reviews.length
-  const normalizedRating = Math.floor(rawRating * 2) / 2
+function AverageRating(props) {
+  const rate = useSelector(state => selectAverageRating(state, props))
+
   return (
     <div>
-      <Rate value={normalizedRating} disabled allowHalf />
+      <Rate value={2} disabled allowHalf />
     </div>
   )
 }

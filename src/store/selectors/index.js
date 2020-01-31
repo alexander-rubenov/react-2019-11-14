@@ -34,3 +34,7 @@ export const selectOrderedDishes = createSelector(
       }
     )
 )
+
+export const selectAverageRating = (state, id) => {
+  // const normalizedRating = Math.floor(rawRating * 2) / 2
+}
